@@ -18,6 +18,7 @@ const comand_list = {
   right: "right",
   down: "down",
   jump: "jump",
+  AltLeft: "AltLeft",
 };
 
 function bindKeyboardKeys() {
