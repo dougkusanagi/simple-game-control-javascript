@@ -8,7 +8,7 @@ yarn && yarn build
 
 <br />
 
-<h2>Set your controls</h2>
+<h2>Importing to use</h2>
 
 <p>After import <code>ControlConfig.js</code> execute <code>ControlConfig()</code> to start the script. just set your comands in the <code>const comand_list</code> in the <code>ControlConfig.js</code> file and use the <code>keyboard_observer.bindKeyCommand()</code> to bind the comand to a key for example:</p>
 
@@ -17,6 +17,26 @@ yarn && yarn build
 ```js
 import ControlConfig from "./ControlConfig.js";
 ControlConfig();
+```
+
+<br />
+
+<h2>Using the controls:</h2>
+
+<p>After that you can use the <code>CommandList.get()</code> function to check if the comand is active or not, for example:</p>
+
+<br />
+
+```js
+const updateFrame = () => {
+  if (CommandList.get('left')) console.log('Go to the left');
+  if (CommandList.get('right')) console.log('Go to the right');
+  if (CommandList.get('jump')) console.log('Jump');
+
+  window.requestAnimationFrame(updateFrame);
+}
+
+updateFrame();
 ```
 
 <br />
@@ -54,26 +74,6 @@ function bindKeyboardKeys() {
   // keyboard_observer.enableLogKey();
   // keyboard_observer.enableLogEvent();
 }
-```
-
-<br />
-
-<h2>Using the controls:</h2>
-
-<p>After that you can use the <code>CommandList.get()</code> function to check if the comand is active or not, for example:</p>
-
-<br />
-
-```js
-const updateFrame = () => {
-  if (CommandList.get('left')) console.log('Go to the left');
-  if (CommandList.get('right')) console.log('Go to the right');
-  if (CommandList.get('jump')) console.log('Jump');
-
-  window.requestAnimationFrame(updateFrame);
-}
-
-updateFrame();
 ```
 
 <br />
