@@ -10,7 +10,22 @@ yarn && yarn build
 
 <h2>Set your controls</h2>
 
-<p>Just set your comands in the <code>const comand_list</code> in the <code>ControlConfig.js</code> file and use the <code>keyboard_observer.bindKeyCommand()</code> to bind the comand to a key for example:</p>
+<p>After import <code>ControlConfig.js</code> execute <code>ControlConfig()</code> to start the script. just set your comands in the <code>const comand_list</code> in the <code>ControlConfig.js</code> file and use the <code>keyboard_observer.bindKeyCommand()</code> to bind the comand to a key for example:</p>
+
+<br />
+
+```js
+import ControlConfig from "./ControlConfig.js";
+ControlConfig();
+```
+
+<br />
+
+<h2>Set your controls</h2>
+
+<p>To configure the controls just set your comands in the <code>const comand_list</code> in the <code>ControlConfig.js</code> file and use the <code>keyboard_observer.bindKeyCommand()</code> to bind the comand to a key for example:</p>
+
+<br />
 
 ```js
 const comand_list = {
@@ -46,6 +61,8 @@ function bindKeyboardKeys() {
 <h2>Using the controls:</h2>
 
 <p>After that you can use the <code>CommandList.get()</code> function to check if the comand is active or not, for example:</p>
+
+<br />
 
 ```js
 const updateFrame = () => {
