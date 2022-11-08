@@ -1,24 +1,40 @@
 import InputObserver from "./InputObserver.js";
 import GamepadObserver from "./GamepadObserver.js";
 import KeyboardObserver from "./KeyboardObserver.js";
+import CommandList from "./CommandList.js";
 
-const commands = {
+export default function ControlConfig() {
+  CommandList.setList(command_list);
+  bindKeyboardKeys();
+  registerControlObservers();
+}
+
+const command_list = {
   left: "left",
   down: "down",
   right: "right",
   up: "up",
-	jump: "jump",
+  jump: "jump",
+  AltLeft: "AltLeft",
 };
 
-function registerCommands() {
+function bindKeyboardKeys() {
   const keyboard_observer = new KeyboardObserver();
-  keyboard_observer.bindKeyCommand("KeyA", commands.left);
-  keyboard_observer.bindKeyCommand("KeyS", commands.down);
-  keyboard_observer.bindKeyCommand("KeyD", commands.right);
-  keyboard_observer.bindKeyCommand("KeyW", commands.up);
-  keyboard_observer.bindKeyCommand("Space", commands.jump);
+  keyboard_observer.bindKeyCommand("KeyA", command_list.left);
+  keyboard_observer.bindKeyCommand("KeyS", command_list.down);
+  keyboard_observer.bindKeyCommand("KeyD", command_list.right);
+  keyboard_observer.bindKeyCommand("KeyW", command_list.up);
+
+  keyboard_observer.bindKeyCommand("ArrowLeft", command_list.left);
+  keyboard_observer.bindKeyCommand("ArrowDown", command_list.down);
+  keyboard_observer.bindKeyCommand("ArrowRight", command_list.right);
+  keyboard_observer.bindKeyCommand("ArrowUp", command_list.up);
+
+  keyboard_observer.bindKeyCommand("Space", command_list.jump);
+  
+	keyboard_observer.disableKey(command_list.AltLeft);
 	// keyboard_observer.enableLogKey();
-	// keyboard_observer.enableLogEvent();
+  // keyboard_observer.enableLogEvent();
 }
 
 function registerControlObservers() {
@@ -30,7 +46,4 @@ function registerControlObservers() {
   window.addEventListener("keyup", (event) => input_observer.notify(event));
 }
 
-export default function ControlConfig() {
-  registerCommands();
-  registerControlObservers();
-}
+

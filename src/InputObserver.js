@@ -8,6 +8,6 @@ export default class InputObserver {
   }
 
   notify(event) {
-    this.observers.forEach((observer) => (new observer).handleEvent(event));
+    this.observers.forEach((observer) => new observer().handleEvent(event));
   }
 }

@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-slate-900">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-indigo-900">
+  <div class="flex flex-col items-center">
+    <div class="text-center my-6 px-4">
+      <h2 class="text-2xl font-bold text-yellow-300">
+        Press w, a, s, d, arrow-up, arrow-left, arrow-down, arrow-right or space to test.
+      </h2>
+
+      <div class="text-lg text-indigo-200 mt-4">
+        <p>Tips:</p>
+
+        <ul> 
+          <li class="bg-indigo-800 p-3 mb-1">
+            You can use uncomment <span class="text-white font-bold">keyboard_observer.enableLogKey()</span> on <span
+              class="text-white font-bold">ControlConfig.js</span> to see the keycode of any key on console.log()
+          </li>
+          <li class="bg-indigo-800 p-3 mb-1">
+            You can use <span class="text-white font-bold">keyboard_observer.disableKey()</span> to disable AltLeft key to avoid unfocus window.
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <canvas class="bg-white"></canvas>
+  </div>
 
-    <script type="module" src="./src/main.js"></script>
-  </body>
+  <script type="module" src="./src/main.js"></script>
+</body>
+
 </html>
