@@ -20,25 +20,37 @@ const comand_list = {
   jump: "jump",
 };
 
-addKeyboardControl({ comand: comand_list.left, key: "ArrowLeft" });
-addKeyboardControl({ comand: comand_list.right, key: "ArrowRight" });
-addKeyboardControl({ comand: comand_list.down, key: "ArrowDown" });
+function bindKeyboardKeys() {
+  const keyboard_observer = new KeyboardObserver();
+  keyboard_observer.bindKeyCommand("KeyA", command_list.left);
+  keyboard_observer.bindKeyCommand("KeyS", command_list.down);
+  keyboard_observer.bindKeyCommand("KeyD", command_list.right);
+  keyboard_observer.bindKeyCommand("KeyW", command_list.up);
 
-addKeyboardControl({ comand: comand_list.jump, key: "ArrowUp" });
-addKeyboardControl({ comand: comand_list.jump, key: "Space" });
+  keyboard_observer.bindKeyCommand("ArrowLeft", command_list.left);
+  keyboard_observer.bindKeyCommand("ArrowDown", command_list.down);
+  keyboard_observer.bindKeyCommand("ArrowRight", command_list.right);
+  keyboard_observer.bindKeyCommand("ArrowUp", command_list.up);
+
+  keyboard_observer.bindKeyCommand("Space", command_list.jump);
+  
+	keyboard_observer.disableKey(command_list.AltLeft);
+	// keyboard_observer.enableLogKey();
+  // keyboard_observer.enableLogEvent();
+}
 ```
 
 <br />
 
 <h2>Using the controls:</h2>
 
-<p>After that you can use the <code>controls()</code> function to check if the comand is active or not, for example:</p>
+<p>After that you can use the <code>CommandList.get()</code> function to check if the comand is active or not, for example:</p>
 
 ```js
 const updateFrame = () => {
-  if (controls('left')) console.log('Go to the left');
-  if (controls('right')) console.log('Go to the right');
-  if (controls('jump')) console.log('Jump');
+  if (CommandList.get('left')) console.log('Go to the left');
+  if (CommandList.get('right')) console.log('Go to the right');
+  if (CommandList.get('jump')) console.log('Jump');
 
   window.requestAnimationFrame(updateFrame);
 }
