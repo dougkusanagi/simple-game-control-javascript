@@ -34,8 +34,8 @@ function bindKeyboardKeys() {
 
   keyboard_observer.bindKeyCommand("Space", command_list.jump);
   
-	keyboard_observer.disableKey(command_list.AltLeft);
-	// keyboard_observer.enableLogKey();
+  keyboard_observer.disableKey(command_list.AltLeft);
+  // keyboard_observer.enableLogKey();
   // keyboard_observer.enableLogEvent();
 }
 ```
